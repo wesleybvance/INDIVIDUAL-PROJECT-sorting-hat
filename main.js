@@ -1,5 +1,19 @@
 console.log("sorting hat!")
 
+// ARRAY HOLDING STUDENT OBJECTS
+const students = [
+  { id: 1,
+    firstName: "Hermione",
+    lastName: "Granger",
+    house: "Gryffindor",
+  },
+  { id: 2,
+    firstName: "Harry",
+    lastName: "Potter",
+    house: "Gryffindor",
+  }
+];
+
 
 // TARGET APP DIV 
 const app = document.querySelector("#app");
