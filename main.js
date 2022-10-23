@@ -17,8 +17,10 @@ const formName =  `<form>
   <div class="col">
     <input type="text" class="form-control" placeholder="Last name">
   </div>
+  <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
 </div>
 </form>`;
+
 
 
 // FUNCTION RENDERS CHOSEN HTML TO CHOSEN DIV
@@ -32,7 +34,7 @@ const renderToDom = (thisDiv, thisHtml) => {
 
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
-    console.log('Start Sort - Form Appears')
+    renderToDom("#formCont", formName);
   }
 }
 

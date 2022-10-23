@@ -1,3 +1,9 @@
 body {
   background-color:aliceblue
 }
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
