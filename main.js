@@ -6,11 +6,20 @@ const students = [
     firstName: "Hermione",
     lastName: "Granger",
     house: "Gryffindor",
+    img: "link",
   },
   { id: 2,
     firstName: "Harry",
     lastName: "Potter",
     house: "Gryffindor",
+    img: "link",
+  },
+  {
+    id: 3, 
+    firstName: "Wesley",
+    lastName: "Vance",
+    house: "Hufflepuff",
+    img: "link",
   }
 ];
 
@@ -35,6 +44,20 @@ const formName =  `<form>
 </div>
 </form>`;
 
+// STUDENT TO CARD HTML FUNCTION
+const studentCard = (student) => {
+  return `<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
+  <div class="card-body">
+    <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
+    <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
+    <a href="#" class="btn btn-primary expel">EXPEL?</a>
+  </div>
+</div>`}
+
+// CARDS TO HTML FUNCTION
+
+
 
 
 // FUNCTION RENDERS CHOSEN HTML TO CHOSEN DIV
@@ -55,3 +78,19 @@ const startSort = (event) => {
 // EVENT LISTENER FOR BUTTON CLICK - FORM APPEARS
 
 app.addEventListener('click', startSort);
+
+// FUNCTION TO ADD CARDS TO DOM
+
+  // const cardsToDom = (array) => {
+  //   let cardsString = "";
+    
+  //   array.forEach((item) => {
+  //     if array.item.includes('Hufflepuff') {
+  //       cardsString += studentCard;
+  //     }
+      
+  //     )
+  //   })
+  // }
+
+  renderToDom("#hufflepuff", studentCard(students[2]));
