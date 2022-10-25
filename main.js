@@ -168,6 +168,6 @@ const createStudent = (event) => {
   renderSlytherin(students);
   renderRavenclaw(students);
   form.reset();
-}
+};
 
 form.addEventListener('submit', createStudent);
