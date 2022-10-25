@@ -45,6 +45,7 @@ const sortStudent = (object) => {
   } else object.house = "Parseltongue?"
 };
 
+// -----------------------
 
 
 // TARGET APP DIV 
@@ -58,10 +59,10 @@ const formCont = document.querySelector("#formCont");
 const formName =  `<form>
 <div class="row">
   <div class="col">
-    <input type="text" class="form-control" placeholder="First name">
+    <input type="text" id="fname" class="form-control" placeholder="First name">
   </div>
   <div class="col">
-    <input type="text" class="form-control" placeholder="Last name">
+    <input type="text" id="lname" class="form-control" placeholder="Last name">
   </div>
   <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
 </div>
@@ -132,7 +133,7 @@ const renderHufflepuff = (array) => {
   renderToDom("#hufflepuff", cards)
 };
 
-// TEST CALLING CARDS
+// TEST CALLING CARDS - RENDER EXISTING STUDENTS IN ARRAY TO HOUSE DIVS
 renderGryffindor(students);
 renderHufflepuff(students);
 renderSlytherin(students);
@@ -150,5 +151,23 @@ const startSort = (event) => {
 
 app.addEventListener('click', startSort);
 
+// CREATE NEW STUDENT FROM FORM VALUES (USER INPUT)
 
-// FUNCTION TO ADD CARDS TO DOM
+const createStudent = (event) => {
+  event.preventDefault();
+
+  const newStudent = {
+    id: students.length + 1,
+    firstName: document.querySelector("#fname").value,
+    lastName: document.querySelector("#lname").value,
+  }
+  students.push(newStudent);
+  sortStudent(students[students.length - 1]);
+  renderGryffindor(students);
+  renderHufflepuff(students);
+  renderSlytherin(students);
+  renderRavenclaw(students);
+  form.reset();
+}
+
+form.addEventListener('submit', createStudent);
