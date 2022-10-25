@@ -167,7 +167,7 @@ const createStudent = (event) => {
   renderHufflepuff(students);
   renderSlytherin(students);
   renderRavenclaw(students);
-  form.reset();
+  formCont.reset();
 };
 
-form.addEventListener('submit', createStudent);
+formCont.addEventListener('submit', createStudent);
