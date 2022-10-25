@@ -139,35 +139,55 @@ renderHufflepuff(students);
 renderSlytherin(students);
 renderRavenclaw(students);
 
-// FUNCTION FOR FORM APPEARING ON BUTTON CLICK
+// // FUNCTION FOR FORM APPEARING ON BUTTON CLICK
 
-const startSort = (event) => {
-  if (event.target.id.includes("startSort")) {
-    renderToDom("#formCont", formName);
-  }
-}
+// const startSort = (event) => {
+//   if (event.target.id.includes("startSort")) {
+//     renderToDom("#formCont", formName);
+//   }
+// }
 
-// EVENT LISTENER FOR BUTTON CLICK - FORM APPEARS
+// // EVENT LISTENER FOR BUTTON CLICK - FORM APPEARS
 
-app.addEventListener('click', startSort);
+// app.addEventListener('click', startSort);
+
+// // DEFINE FORM - SELECT ON DOM
+// const form = document.querySelector("form")
 
 // CREATE NEW STUDENT FROM FORM VALUES (USER INPUT)
 
 const createStudent = (event) => {
   event.preventDefault();
+  const form = document.querySelector("form")
 
   const newStudent = {
     id: students.length + 1,
     firstName: document.querySelector("#fname").value,
     lastName: document.querySelector("#lname").value,
   }
+  form.reset();
   students.push(newStudent);
   sortStudent(students[students.length - 1]);
   renderGryffindor(students);
   renderHufflepuff(students);
   renderSlytherin(students);
   renderRavenclaw(students);
-  formCont.reset();
 };
 
-formCont.addEventListener('submit', createStudent);
+// FUNCTION FOR FORM APPEARING ON BUTTON CLICK
+
+const startSort = (event) => {
+  if (event.target.id.includes("startSort")) {
+    renderToDom("#formCont", formName);
+  }
+  // DEFINE FORM - SELECT ON DOM
+  const form = document.querySelector("form")
+  form.addEventListener('submit', createStudent);
+}
+
+// EVENT LISTENER FOR BUTTON CLICK - FORM APPEARS
+
+app.addEventListener('click', startSort);
+
+
+// form.addEventListener('submit', createStudent);
