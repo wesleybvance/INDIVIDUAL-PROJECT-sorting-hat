@@ -1,6 +1,6 @@
 console.log("sorting hat!")
 
-// ARRAY HOLDING STUDENT OBJECTS
+// ARRAYS HOLDING STUDENT OBJECTS
 const students = [
   { id: 1,
     firstName: "Hermione",
@@ -79,18 +79,26 @@ const startSort = (event) => {
 
 app.addEventListener('click', startSort);
 
-// FUNCTION TO ADD CARDS TO DOM
+FUNCTION TO ADD CARDS TO DOM
 
-  // const cardsToDom = (array) => {
-  //   let cardsString = "";
+  const cardsToDom = (array) => {
+    let cardString = "";
     
-  //   array.forEach((item) => {
-  //     if array.item.includes('Hufflepuff') {
-  //       cardsString += studentCard;
-  //     }
+    array.forEach((item) => {
+      if (array.item.includes('Hufflepuff')) {
+        cardsString += studentCard(item);
+      } else if (array.item.includes('Hufflepuff')) {
+        cardsString += studentCard(item);
+      }
       
-  //     )
-  //   })
-  // }
+      )
+    })
+  }
 
-  renderToDom("#hufflepuff", studentCard(students[2]));
+
+// building randomize function
+
+  const randomNum = () => {
+    let num = Math.floor((Math.random() * 4) + 1);
+    return num;
+  };
