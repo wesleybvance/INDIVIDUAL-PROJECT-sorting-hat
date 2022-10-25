@@ -23,6 +23,29 @@ const students = [
   }
 ];
 
+// -----SORTING FUNCTIONS!!------
+
+// RANDOMIZE NUMBER 1-4
+const randomNum = () => {
+  let num = Math.floor((Math.random() * 4) + 1);
+  return num;
+};
+
+// SORT STUDENT: ADD/UPDATE HOUSE ATTRIBUTE TO STUDENT OBJECT BASED ON RANDOMIZED NUMBER
+const sortStudent = (object) => {
+  let bead = randomNum();
+  if (bead === 1) {
+    object.house = "gryffindor";
+  } else if (bead === 2) {
+    object.house = "slytherin";
+  } else if (bead === 3) {
+    object.house = "ravenclaw";
+  } else if (bead === 4) {
+    object.house = "hufflepuff";
+  } else object.house = "parseltongue?"
+};
+
+
 
 // TARGET APP DIV 
 const app = document.querySelector("#app");
@@ -59,7 +82,6 @@ const studentCard = (student) => {
 
 
 
-
 // FUNCTION RENDERS CHOSEN HTML TO CHOSEN DIV
 const renderToDom = (thisDiv, thisHtml) => {
   const selectedDiv = document.querySelector(thisDiv);
@@ -79,26 +101,5 @@ const startSort = (event) => {
 
 app.addEventListener('click', startSort);
 
-FUNCTION TO ADD CARDS TO DOM
 
-  const cardsToDom = (array) => {
-    let cardString = "";
-    
-    array.forEach((item) => {
-      if (array.item.includes('Hufflepuff')) {
-        cardsString += studentCard(item);
-      } else if (array.item.includes('Hufflepuff')) {
-        cardsString += studentCard(item);
-      }
-      
-      )
-    })
-  }
-
-
-// building randomize function
-
-  const randomNum = () => {
-    let num = Math.floor((Math.random() * 4) + 1);
-    return num;
-  };
+// FUNCTION TO ADD CARDS TO DOM
