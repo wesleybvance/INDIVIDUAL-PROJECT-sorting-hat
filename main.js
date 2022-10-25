@@ -35,14 +35,14 @@ const randomNum = () => {
 const sortStudent = (object) => {
   let bead = randomNum();
   if (bead === 1) {
-    object.house = "gryffindor";
+    object.house = "Gryffindor";
   } else if (bead === 2) {
-    object.house = "slytherin";
+    object.house = "Slytherin";
   } else if (bead === 3) {
-    object.house = "ravenclaw";
+    object.house = "Ravenclaw";
   } else if (bead === 4) {
-    object.house = "hufflepuff";
-  } else object.house = "parseltongue?"
+    object.house = "Hufflepuff";
+  } else object.house = "Parseltongue?"
 };
 
 
@@ -78,9 +78,6 @@ const studentCard = (student) => {
   </div>
 </div>`}
 
-// CARDS TO HTML FUNCTION
-
-
 
 // FUNCTION RENDERS CHOSEN HTML TO CHOSEN DIV
 const renderToDom = (thisDiv, thisHtml) => {
@@ -88,6 +85,58 @@ const renderToDom = (thisDiv, thisHtml) => {
   selectedDiv.innerHTML = thisHtml;
 };
 
+// RENDER CARDS TO DOM FUNCTIONS
+
+// GRYFFINDOR:
+const renderGryffindor = (array) => {
+  let cards = "";
+  array.forEach((student) => {
+    if (student.house === 'Gryffindor') {
+      cards += studentCard(student);
+    }
+    return cards;
+  })
+  renderToDom("#gryffindor", cards)
+};
+// SLYTHERIN:
+const renderSlytherin = (array) => {
+  let cards = "";
+  array.forEach((student) => {
+    if (student.house === 'Slytherin') {
+      cards += studentCard(student);
+    }
+    return cards;
+  })
+  renderToDom("#slytherin", cards)
+};
+// RAVENCLAW
+const renderRavenclaw = (array) => {
+  let cards = "";
+  array.forEach((student) => {
+    if (student.house === 'Ravenclaw') {
+      cards += studentCard(student);
+    }
+    return cards;
+  })
+  renderToDom("#ravenclaw", cards)
+};
+// HUFFLEPUFF
+const renderHufflepuff = (array) => {
+  let cards = "";
+  array.forEach((student) => {
+    if (student.house === 'Hufflepuff') {
+      cards += studentCard(student);
+    }
+    return cards;
+  })
+  renderToDom("#hufflepuff", cards)
+};
+
+// TEST CALLING CARDS
+renderGryffindor(students);
+renderHufflepuff(students);
+renderSlytherin(students);
+renderRavenclaw(students);
 
 // FUNCTION FOR FORM APPEARING ON BUTTON CLICK
 
