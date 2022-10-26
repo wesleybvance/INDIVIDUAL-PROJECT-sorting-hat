@@ -225,8 +225,11 @@ app.addEventListener('click', (e) => {
 
     const index = students.findIndex(e=> e.id === Number(id));
 
-    students.splice(index, 1);
-
+    const darkSiding = students.splice(index, 1);
+    const newSoldier = darkSiding.pop()
+    army.push(newSoldier);
+    console.log(army);
+    renderAll();
     
   }
 })
