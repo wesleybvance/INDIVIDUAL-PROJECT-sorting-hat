@@ -1,6 +1,14 @@
 console.log("sorting hat!")
 
-// ARRAYS HOLDING STUDENT OBJECTS
+
+// TARGET APP DIV 
+const app = document.querySelector("#app");
+// TARGET FORM DIV
+const formCont = document.querySelector("#formCont");
+
+
+
+// ARRAY HOLDING STUDENT OBJECTS
 const students = [
   { id: 1,
     firstName: "Hermione",
@@ -22,6 +30,22 @@ const students = [
     img: "link",
   }
 ];
+
+// ARRAY HOLDING VOLD ARMY OBJECTS
+const army = [
+  { id: 1,
+    firstName: "Tom",
+    lastName: "Riddle",
+    house: "Gryffindor",
+    img: "link",
+  },
+  { id: 2,
+    firstName: "Someone",
+    lastName: "Else",
+    house: "Gryffindor",
+    img: "link",
+  },
+]
 
 // -----SORTING FUNCTIONS!!------
 
@@ -48,13 +72,6 @@ const sortStudent = (object) => {
 // -----------------------
 
 
-// TARGET APP DIV 
-const app = document.querySelector("#app");
-
-// TARGET FORM DIV
-const formCont = document.querySelector("#formCont");
-
-
 // FORM HTML
 const formName =  `<form>
 <div class="row">
@@ -75,9 +92,28 @@ const studentCard = (student) => {
   <div class="card-body">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
-    <a href="#" class="btn btn-primary expel">EXPEL?</a>
+    <button type="button" class="btn btn-primary" id="expel--${student.id}">EXPEL</button>
   </div>
 </div>`}
+
+// ARMY TO CARD HTML FUNCTION
+const armyCard = (soldier) => {
+  return `<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="${soldier.img}" alt="${soldier.firstName}, disgraced.">
+  <div class="card-body">
+    <h5 class="card-title">${soldier.firstName} ${soldier.lastName}</h5>
+    <p class="card-text">${soldier.firstName} ${soldier.lastName} has been expelled. Welcome to Voldemort's Army!</p>
+    <button type="button" class="btn btn-primary" id="expel--${soldier.id}">??</button>
+  </div>
+</div>`}
+
+const renderArmy = (array) => {
+  let cards = "";
+  array.forEach((soldier) => {
+    cards += armyCard(soldier);
+  })
+  renderToDom("#voldemort", cards)
+};
 
 
 // FUNCTION RENDERS CHOSEN HTML TO CHOSEN DIV
@@ -87,7 +123,6 @@ const renderToDom = (thisDiv, thisHtml) => {
 };
 
 // RENDER CARDS TO DOM FUNCTIONS
-
 // GRYFFINDOR:
 const renderGryffindor = (array) => {
   let cards = "";
@@ -133,26 +168,16 @@ const renderHufflepuff = (array) => {
   renderToDom("#hufflepuff", cards)
 };
 
-// TEST CALLING CARDS - RENDER EXISTING STUDENTS IN ARRAY TO HOUSE DIVS
-renderGryffindor(students);
-renderHufflepuff(students);
-renderSlytherin(students);
-renderRavenclaw(students);
+// RENDER ALL EXISTING STUDENTS IN ARRAY TO HOUSE DIVS
 
-// // FUNCTION FOR FORM APPEARING ON BUTTON CLICK
+const renderAll = () => {
+  renderGryffindor(students);
+  renderHufflepuff(students);
+  renderSlytherin(students);
+  renderRavenclaw(students); 
+  renderArmy(army);
+};
 
-// const startSort = (event) => {
-//   if (event.target.id.includes("startSort")) {
-//     renderToDom("#formCont", formName);
-//   }
-// }
-
-// // EVENT LISTENER FOR BUTTON CLICK - FORM APPEARS
-
-// app.addEventListener('click', startSort);
-
-// // DEFINE FORM - SELECT ON DOM
-// const form = document.querySelector("form")
 
 // CREATE NEW STUDENT FROM FORM VALUES (USER INPUT)
 
@@ -179,8 +204,10 @@ const createStudent = (event) => {
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
     renderToDom("#formCont", formName);
+    renderAll();
   }
-  // DEFINE FORM - SELECT ON DOM
+  // DEFINE FORM - SELECT ON DOM & ADD EVENT LISTENER FOR SUBMITTING/CREATING STUDENT CARD 
+
   const form = document.querySelector("form")
   form.addEventListener('submit', createStudent);
 }
@@ -190,4 +217,16 @@ const startSort = (event) => {
 app.addEventListener('click', startSort);
 
 
-// form.addEventListener('submit', createStudent);
+// BUILDING DELETE FUNCTIONALITY
+
+app.addEventListener('click', (e) => {
+  if (e.target.id.includes("expel")) {
+    const [, id] = e.target.id.split("--");
+
+    const index = students.findIndex(e=> e.id === Number(id));
+
+    students.splice(index, 1);
+
+    
+  }
+})
