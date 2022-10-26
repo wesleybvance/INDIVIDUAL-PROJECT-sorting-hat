@@ -4,7 +4,7 @@ console.log("sorting hat!")
 // TARGET APP DIV 
 const app = document.querySelector("#app");
 // TARGET FORM DIV
-const formCont = document.querySelector("#formCont");
+const formCont = document.querySelector("#formBanner");
 
 
 
@@ -87,7 +87,7 @@ const assignId = (student) => {
 
 
 // FORM HTML
-const formName =  `<form>
+const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
     <input type="text" id="fname" class="form-control" placeholder="First name">
@@ -126,7 +126,7 @@ const renderArmy = (array) => {
   array.forEach((soldier) => {
     cards += armyCard(soldier);
   })
-  renderToDom("#voldemort", cards)
+  renderToDom("#voldArmy", cards)
 };
 
 
