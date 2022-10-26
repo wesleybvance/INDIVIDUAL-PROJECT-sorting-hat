@@ -5,7 +5,10 @@ console.log("sorting hat!")
 const app = document.querySelector("#app");
 // TARGET FORM DIV
 const formBanner = document.querySelector("#formBanner");
+// TARGET INTRO FORM DIV
+const introCard = document.querySelector("#introCard");
 
+const clearDiv = "";
 
 
 // ARRAY HOLDING STUDENT OBJECTS
@@ -85,8 +88,16 @@ const assignId = (student) => {
   student.id = username(student);
 };
 
+// HOUSES FORM HTML 
+const houseSelect = `<select class="form-select" aria-label="Default select example">
+<option selected>All Houses</option>
+<option value="1">Gryffindor</option>
+<option value="2">Slytherin</option>
+<option value="3">Ravenclaw</option>
+<option value="3">Hufflepuff</option>
+</select>`
 
-// FORM HTML
+// STUDENT FORM HTML
 const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
@@ -220,6 +231,8 @@ const createStudent = (event) => {
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
     renderToDom("#formBanner", formName);
+    renderToDom("#introCard", clearDiv);
+    renderToDom("#enrolled", houseSelect);
     renderAll();
   }
   // DEFINE FORM - SELECT ON DOM & ADD EVENT LISTENER FOR SUBMITTING/CREATING STUDENT CARD 
