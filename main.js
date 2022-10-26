@@ -4,7 +4,7 @@ console.log("sorting hat!")
 // TARGET APP DIV 
 const app = document.querySelector("#app");
 // TARGET FORM DIV
-const formCont = document.querySelector("#formCont");
+const formCont = document.querySelector("#formBanner");
 
 
 
@@ -71,9 +71,23 @@ const sortStudent = (object) => {
 
 // -----------------------
 
+// FUNCTION CREATES UNIQUE USER ID
+const username = (student) => {
+  const fname = `${student.firstName}`;
+  const lname = `${student.lastName}`;
+  const house = `${student.house}`;
+  const lnamep = lname.slice(0, 8);
+  const newId = fname.charAt(0)+lnamep+"-"+house;
+  return newId;
+};
+
+const assignId = (student) => {
+  student.id = username(student);
+};
+
 
 // FORM HTML
-const formName =  `<form>
+const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
     <input type="text" id="fname" class="form-control" placeholder="First name">
@@ -89,7 +103,7 @@ const formName =  `<form>
 const studentCard = (student) => {
   return `<div class="card" style="width: 18rem;">
   <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
-  <div class="card-body">
+  <div class="card-body ${student.house}-card">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
     <button type="button" class="btn btn-primary" id="expel--${student.id}">EXPEL</button>
@@ -112,7 +126,7 @@ const renderArmy = (array) => {
   array.forEach((soldier) => {
     cards += armyCard(soldier);
   })
-  renderToDom("#voldemort", cards)
+  renderToDom("#voldArmy", cards)
 };
 
 
@@ -193,10 +207,12 @@ const createStudent = (event) => {
   form.reset();
   students.push(newStudent);
   sortStudent(students[students.length - 1]);
+  assignId(students[students.length - 1]);
   renderGryffindor(students);
   renderHufflepuff(students);
   renderSlytherin(students);
   renderRavenclaw(students);
+  console.log(students);
 };
 
 // FUNCTION FOR FORM APPEARING ON BUTTON CLICK
@@ -217,7 +233,7 @@ const startSort = (event) => {
 app.addEventListener('click', startSort);
 
 
-// BUILDING DELETE FUNCTIONALITY
+// BUILDING EXPEL FUNCTIONALITY
 
 app.addEventListener('click', (e) => {
   if (e.target.id.includes("expel")) {
@@ -230,6 +246,5 @@ app.addEventListener('click', (e) => {
     army.push(newSoldier);
     console.log(army);
     renderAll();
-    
   }
 })
