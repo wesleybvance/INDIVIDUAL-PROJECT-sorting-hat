@@ -4,7 +4,7 @@ console.log("sorting hat!")
 // TARGET APP DIV 
 const app = document.querySelector("#app");
 // TARGET FORM DIV
-const formCont = document.querySelector("#formBanner");
+const formBanner = document.querySelector("#formBanner");
 
 
 
@@ -197,7 +197,7 @@ const renderAll = () => {
 
 const createStudent = (event) => {
   event.preventDefault();
-  const form = document.querySelector("form")
+  const form = document.querySelector("#studentForm")
 
   const newStudent = {
     id: students.length + 1,
@@ -219,12 +219,12 @@ const createStudent = (event) => {
 
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
-    renderToDom("#formCont", formName);
+    renderToDom("#formBanner", formName);
     renderAll();
   }
   // DEFINE FORM - SELECT ON DOM & ADD EVENT LISTENER FOR SUBMITTING/CREATING STUDENT CARD 
 
-  const form = document.querySelector("form")
+  const form = document.querySelector("#studentForm")
   form.addEventListener('submit', createStudent);
 }
 
