@@ -4,8 +4,12 @@ console.log("sorting hat!")
 // TARGET APP DIV 
 const app = document.querySelector("#app");
 // TARGET FORM DIV
-const formCont = document.querySelector("#formBanner");
+const formBanner = document.querySelector("#formBanner");
+// TARGET INTRO FORM DIV
+const introCard = document.querySelector("#introCard");
 
+
+const clearDiv = "";
 
 
 // ARRAY HOLDING STUDENT OBJECTS
@@ -13,7 +17,7 @@ const students = [
   { id: 1,
     firstName: "Hermione",
     lastName: "Granger",
-    house: "Gryffindor",
+    house: "Ravenclaw",
     img: "link",
   },
   { id: 2,
@@ -85,8 +89,41 @@ const assignId = (student) => {
   student.id = username(student);
 };
 
+// HOUSES FORM HTML 
+const houseSelect = `<select id="houseMenu" class="form-select" aria-label="Default select example">
+<option selected>Select A House</option>
+<option value="1">Gryffindor</option>
+<option value="2">Slytherin</option>
+<option value="3">Ravenclaw</option>
+<option value="4">Hufflepuff</option>
+<option value="5">All Houses</option>
+</select>`
 
-// FORM HTML
+// MAIN PAGE HTML 
+const mainPage = `<div id="formBanner" class="container-two"></div>
+
+<div id="enrolled" class="container-three"></div>
+
+<div id="currentClass" class="container-four">
+  <div id="allHouses" class="container-four-inner">
+    
+      <div id="gryffindor" class="house"></div>
+    
+    
+      <div id="slytherin" class="house"></div>
+    
+    
+      <div id="ravenclaw" class="house"></div>
+    
+    
+      <div id="hufflepuff" class="house"></div>
+    
+  </div>
+  <div id="voldArmy" class="army"></div>
+</div>`
+
+
+// STUDENT FORM HTML
 const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
@@ -197,7 +234,7 @@ const renderAll = () => {
 
 const createStudent = (event) => {
   event.preventDefault();
-  const form = document.querySelector("form")
+  const form = document.querySelector("#studentForm")
 
   const newStudent = {
     id: students.length + 1,
@@ -215,16 +252,66 @@ const createStudent = (event) => {
   console.log(students);
 };
 
-// FUNCTION FOR FORM APPEARING ON BUTTON CLICK
+// CLEARDIV FUNCTION 
+
+const clearHouse = (id) => {
+  renderToDom(id, clearDiv);
+};
+
+// FILTER BY HOUSE FUNCTION 
+
+const filterHouse = (e) => {
+  const griffId = `<div id="gryffindor" class="house"></div>`;
+  const slythId = `<div id="slytherin" class="house"></div>`;
+  const ravenId = `<div id="ravenclaw" class="house"></div>`;
+  const huffId = `<div id="hufflepuff" class="house"></div>`;
+  const allId = `<div id="gryffindor" class="house"></div>
+                <div id="slytherin" class="house"></div>
+                <div id="ravenclaw" class="house"></div>
+                <div id="hufflepuff" class="house"></div>`
+  if (houseMenu.value==="1") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", griffId);
+    renderGryffindor(students);
+  } else if (houseMenu.value==="2") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", slythId);
+    renderSlytherin(students);
+  } else if (houseMenu.value==="3") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", ravenId);
+    renderRavenclaw(students);
+  } else if (houseMenu.value==="4") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", huffId);
+    renderHufflepuff(students);
+  } else if (houseMenu.value==="5") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", allId);
+    renderAll(students);
+  }
+};
+
+
+
+// FUNCTION FOR CREATE STUDENT FORM, HOUSES, AND ARMY APPEARING ON PAGE ON BUTTON CLICK + SETTING UP RESULTING FUNCTIONS
 
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
-    renderToDom("#formCont", formName);
+    renderToDom("#app", mainPage)
+    renderToDom("#formBanner", formName);
+    // renderToDom("#introCard", clearDiv);
+    renderToDom("#enrolled", houseSelect);
     renderAll();
+    const houseMenu = document.querySelector("#houseMenu");
+    const houseDiv = document.querySelector("#enrolled");
+    houseMenu.addEventListener('change', filterHouse);
   }
+
+
   // DEFINE FORM - SELECT ON DOM & ADD EVENT LISTENER FOR SUBMITTING/CREATING STUDENT CARD 
 
-  const form = document.querySelector("form")
+  const form = document.querySelector("#studentForm")
   form.addEventListener('submit', createStudent);
 }
 
@@ -233,7 +320,7 @@ const startSort = (event) => {
 app.addEventListener('click', startSort);
 
 
-// BUILDING EXPEL FUNCTIONALITY
+// EXPEL FUNCTIONALITY
 
 app.addEventListener('click', (e) => {
   if (e.target.id.includes("expel")) {
@@ -247,4 +334,4 @@ app.addEventListener('click', (e) => {
     console.log(army);
     renderAll();
   }
-})
+});

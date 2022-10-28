@@ -2,12 +2,6 @@ body {
   background-color:aliceblue
 }
 
-.container1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
 .gryffindor-card {
 
@@ -15,4 +9,19 @@ body {
 
 .ravenclaw-card {
 
+}
+
+.container-four-inner {
+  display: flex;
+}
+
+.house {
+  flex-basis: 1;
+  margin: 15px;
+  border: 5px solid black;
+}
+
+.army {
+  display: flex;
+  
 }
