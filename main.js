@@ -17,7 +17,7 @@ const students = [
   { id: 1,
     firstName: "Hermione",
     lastName: "Granger",
-    house: "Gryffindor",
+    house: "Ravenclaw",
     img: "link",
   },
   { id: 2,
@@ -227,19 +227,38 @@ const createStudent = (event) => {
   console.log(students);
 };
 
+// CLEARDIV FUNCTION 
+
+const clearHouse = (id) => {
+  renderToDom(id, clearDiv);
+};
+
 // FILTER BY HOUSE FUNCTION 
 
 const filterHouse = (e) => {
   if (houseMenu.value==="1") {
-    console.log("gryffindor")
+    clearHouse("#slytherin");
+    clearHouse("#ravenclaw");
+    clearHouse("#hufflepuff");
+    renderGryffindor(students);
   } else if (houseMenu.value==="2") {
-    console.log("slytherin")
+    clearHouse("#gryffindor");
+    clearHouse("#ravenclaw");
+    clearHouse("#hufflepuff");
+    renderSlytherin(students);
   } else if (houseMenu.value==="3") {
-    console.log("ravenclaw")
+    clearHouse("#gryffindor");
+    clearHouse("#slytherin");
+    clearHouse("#hufflepuff");
+    renderRavenclaw(students);
   } else if (houseMenu.value==="4") {
-    console.log("hufflepuff");
+    clearHouse("#gryffindor");
+    clearHouse("#ravenclaw");
+    clearHouse("#slytherin");
+    renderHufflepuff(students);
   }
 };
+
 
 
 // FUNCTION FOR CREATE STUDENT FORM, HOUSES, AND ARMY APPEARING ON PAGE ON BUTTON CLICK + SETTING UP RESULTING FUNCTIONS
