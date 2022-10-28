@@ -7,6 +7,8 @@ const app = document.querySelector("#app");
 const formBanner = document.querySelector("#formBanner");
 // TARGET INTRO FORM DIV
 const introCard = document.querySelector("#introCard");
+// HOGWARTS LOGO IMG
+const hogwartsLogo = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b4bdfc0-163c-4a6b-b800-0213094cfc2d/d665icx-cbbc58fe-5ff6-421e-bbeb-cedcfbe670e3.png/v1/fill/w_1600,h_1727,strp/hogwarts_crest_by_geijvontaen_d665icx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcyNyIsInBhdGgiOiJcL2ZcLzViNGJkZmMwLTE2M2MtNGE2Yi1iODAwLTAyMTMwOTRjZmMyZFwvZDY2NWljeC1jYmJjNThmZS01ZmY2LTQyMWUtYmJlYi1jZWRjZmJlNjcwZTMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.381VNcGRF2V5-_UQei_5yNyNPT8gjhJBAoNZcSZxYoQ";
 
 
 const clearDiv = "";
@@ -45,15 +47,15 @@ const students = [
 // ARRAY HOLDING VOLD ARMY OBJECTS
 const army = [
   { id: 1,
-    firstName: "Tom",
-    lastName: "Riddle",
-    house: "Gryffindor",
+    firstName: "Voldemort",
+    lastName: "",
+    house: "Slytherin",
     img: "link",
   },
   { id: 2,
-    firstName: "Someone",
-    lastName: "Else",
-    house: "Gryffindor",
+    firstName: "Draco",
+    lastName: "Malfoy",
+    house: "Slytherin",
     img: "link",
   },
 ]
@@ -139,7 +141,11 @@ const formName =  `<form id="studentForm">
   <div class="col">
     <input type="text" id="lname" class="form-control" placeholder="Last name">
   </div>
+  <div class="col">
+    <input type="text" id="imgurl" class="form-control" placeholder="Image URL">
+  </div>
   <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
+  <div class="error" id="formError"></div>
 </div>
 </form>`;
 
@@ -161,7 +167,6 @@ const armyCard = (soldier) => {
   <div class="card-body">
     <h5 class="card-title">${soldier.firstName} ${soldier.lastName}</h5>
     <p class="card-text">${soldier.firstName} ${soldier.lastName} has been expelled. Welcome to Voldemort's Army!</p>
-    <button type="button" class="btn btn-primary" id="expel--${soldier.id}">??</button>
   </div>
 </div>`}
 
@@ -241,13 +246,19 @@ const renderAll = () => {
 
 const createStudent = (event) => {
   event.preventDefault();
-  const form = document.querySelector("#studentForm")
-
+  const form = document.querySelector("#studentForm");
   const newStudent = {
     id: students.length + 1,
     firstName: document.querySelector("#fname").value,
     lastName: document.querySelector("#lname").value,
-  }
+    img: document.querySelector("#imgurl").value,
+  };
+  if ((document.querySelector("#fname").value)==="") {
+    // make below a pop up field function with button close 
+    renderToDom("#formError", "Please enter a name.")
+  } else if ((document.querySelector("#imgurl").value)==="") {
+   newStudent.img = hogwartsLogo;
+  } else
   form.reset();
   students.push(newStudent);
   sortStudent(students[students.length - 1]);
@@ -256,7 +267,6 @@ const createStudent = (event) => {
   renderHufflepuff(students);
   renderSlytherin(students);
   renderRavenclaw(students);
-  console.log(students);
 };
 
 // CLEARDIV FUNCTION 
