@@ -8,6 +8,7 @@ const formBanner = document.querySelector("#formBanner");
 // TARGET INTRO FORM DIV
 const introCard = document.querySelector("#introCard");
 
+
 const clearDiv = "";
 
 
@@ -89,12 +90,12 @@ const assignId = (student) => {
 };
 
 // HOUSES FORM HTML 
-const houseSelect = `<select class="form-select" aria-label="Default select example">
+const houseSelect = `<select id="houseMenu" class="form-select" aria-label="Default select example">
 <option selected>All Houses</option>
 <option value="1">Gryffindor</option>
 <option value="2">Slytherin</option>
 <option value="3">Ravenclaw</option>
-<option value="3">Hufflepuff</option>
+<option value="4">Hufflepuff</option>
 </select>`
 
 // STUDENT FORM HTML
@@ -226,7 +227,22 @@ const createStudent = (event) => {
   console.log(students);
 };
 
-// FUNCTION FOR FORM APPEARING ON BUTTON CLICK
+// FILTER BY HOUSE FUNCTION 
+
+const filterHouse = (e) => {
+  if (houseMenu.value==="1") {
+    console.log("gryffindor")
+  } else if (houseMenu.value==="2") {
+    console.log("slytherin")
+  } else if (houseMenu.value==="3") {
+    console.log("ravenclaw")
+  } else if (houseMenu.value==="4") {
+    console.log("hufflepuff");
+  }
+};
+
+
+// FUNCTION FOR CREATE STUDENT FORM, HOUSES, AND ARMY APPEARING ON PAGE ON BUTTON CLICK + SETTING UP RESULTING FUNCTIONS
 
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
@@ -234,7 +250,12 @@ const startSort = (event) => {
     renderToDom("#introCard", clearDiv);
     renderToDom("#enrolled", houseSelect);
     renderAll();
+    const houseMenu = document.querySelector("#houseMenu");
+    const houseDiv = document.querySelector("#enrolled");
+    houseMenu.addEventListener('change', filterHouse);
   }
+
+
   // DEFINE FORM - SELECT ON DOM & ADD EVENT LISTENER FOR SUBMITTING/CREATING STUDENT CARD 
 
   const form = document.querySelector("#studentForm")
@@ -246,7 +267,7 @@ const startSort = (event) => {
 app.addEventListener('click', startSort);
 
 
-// BUILDING EXPEL FUNCTIONALITY
+// EXPEL FUNCTIONALITY
 
 app.addEventListener('click', (e) => {
   if (e.target.id.includes("expel")) {
@@ -260,4 +281,4 @@ app.addEventListener('click', (e) => {
     console.log(army);
     renderAll();
   }
-})
+});
