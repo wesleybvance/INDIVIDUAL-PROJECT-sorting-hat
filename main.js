@@ -91,12 +91,37 @@ const assignId = (student) => {
 
 // HOUSES FORM HTML 
 const houseSelect = `<select id="houseMenu" class="form-select" aria-label="Default select example">
-<option selected>All Houses</option>
+<option selected>Select A House</option>
 <option value="1">Gryffindor</option>
 <option value="2">Slytherin</option>
 <option value="3">Ravenclaw</option>
 <option value="4">Hufflepuff</option>
+<option value="5">All Houses</option>
 </select>`
+
+// MAIN PAGE HTML 
+const mainPage = `<div id="formBanner" class="container-two"></div>
+
+<div id="enrolled" class="container-three"></div>
+
+<div id="currentClass" class="container-four">
+  <div id="allHouses" class="container-four-inner">
+    
+      <div id="gryffindor" class="house"></div>
+    
+    
+      <div id="slytherin" class="house"></div>
+    
+    
+      <div id="ravenclaw" class="house"></div>
+    
+    
+      <div id="hufflepuff" class="house"></div>
+    
+  </div>
+  <div id="voldArmy" class="army"></div>
+</div>`
+
 
 // STUDENT FORM HTML
 const formName =  `<form id="studentForm">
@@ -236,26 +261,34 @@ const clearHouse = (id) => {
 // FILTER BY HOUSE FUNCTION 
 
 const filterHouse = (e) => {
+  const griffId = `<div id="gryffindor" class="house"></div>`;
+  const slythId = `<div id="slytherin" class="house"></div>`;
+  const ravenId = `<div id="ravenclaw" class="house"></div>`;
+  const huffId = `<div id="hufflepuff" class="house"></div>`;
+  const allId = `<div id="gryffindor" class="house"></div>
+                <div id="slytherin" class="house"></div>
+                <div id="ravenclaw" class="house"></div>
+                <div id="hufflepuff" class="house"></div>`
   if (houseMenu.value==="1") {
-    clearHouse("#slytherin");
-    clearHouse("#ravenclaw");
-    clearHouse("#hufflepuff");
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", griffId);
     renderGryffindor(students);
   } else if (houseMenu.value==="2") {
-    clearHouse("#gryffindor");
-    clearHouse("#ravenclaw");
-    clearHouse("#hufflepuff");
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", slythId);
     renderSlytherin(students);
   } else if (houseMenu.value==="3") {
-    clearHouse("#gryffindor");
-    clearHouse("#slytherin");
-    clearHouse("#hufflepuff");
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", ravenId);
     renderRavenclaw(students);
   } else if (houseMenu.value==="4") {
-    clearHouse("#gryffindor");
-    clearHouse("#ravenclaw");
-    clearHouse("#slytherin");
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", huffId);
     renderHufflepuff(students);
+  } else if (houseMenu.value==="5") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", allId);
+    renderAll(students);
   }
 };
 
@@ -265,8 +298,9 @@ const filterHouse = (e) => {
 
 const startSort = (event) => {
   if (event.target.id.includes("startSort")) {
+    renderToDom("#app", mainPage)
     renderToDom("#formBanner", formName);
-    renderToDom("#introCard", clearDiv);
+    // renderToDom("#introCard", clearDiv);
     renderToDom("#enrolled", houseSelect);
     renderAll();
     const houseMenu = document.querySelector("#houseMenu");
