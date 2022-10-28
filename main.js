@@ -15,9 +15,9 @@ const clearDiv = "";
 // ARRAY HOLDING STUDENT OBJECTS
 const students = [
   { id: 1,
-    firstName: "Hermione",
-    lastName: "Granger",
-    house: "Ravenclaw",
+    firstName: "Andre",
+    lastName: "Vance",
+    house: "Slytherin",
     img: "link",
   },
   { id: 2,
@@ -28,10 +28,17 @@ const students = [
   },
   {
     id: 3, 
-    firstName: "Wesley",
-    lastName: "Vance",
-    house: "Hufflepuff",
+    firstName: "Luna",
+    lastName: "Lovegood",
+    house: "Ravenclaw",
     img: "link",
+  }, 
+  {
+    id: 4,
+    firstName: "Cedric", 
+    lastName: "Diggory", 
+    house: "Hufflepuff", 
+    img: "link", 
   }
 ];
 
