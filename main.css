@@ -26,6 +26,20 @@ body {
   font-family: 'IM Fell DW Pica', serif; 
 }
 
+#sortMe {
+  color: white;
+  background-color: black;
+  border: white;
+  font-family: 'IM Fell DW Pica', serif; 
+}
+
+.btn, .btn-primary {
+  color: white;
+  background-color: black;
+  border: white;
+  font-family: 'IM Fell DW Pica', serif; 
+}
+
 
 .intro-card {
   margin: auto;
@@ -64,23 +78,19 @@ body {
  #Gryffindorcard {
   background-color: crimson;
   color: white;
-  max-height: 700px;
  }
 
  #Slytherincard {
   background-color: green;
   color: white;
-  max-height: 700px;
  }
 
  #Hufflepuffcard {
   background-color: gold;
   color: white;
-  max-height: 700px;
  }
 
  #Ravenclawcard {
   background-color: purple;
   color: white;
-  max-height: 700px;
  }

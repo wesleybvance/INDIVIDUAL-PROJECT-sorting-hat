@@ -144,8 +144,7 @@ const formName =  `<form id="studentForm">
   <p><div class="col">
     <input type="text" id="imgurl" class="form-control" placeholder="Image URL">
   </div></p>
-  <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
-  <div class="error" id="formError"></div>
+  <button type="submit" class="btn btn-primary" id="sortMe">Sort Me</button>
 </div>
 </form>`;
 
@@ -156,7 +155,7 @@ const studentCard = (student) => {
   <div class="card-body" id="${student.house}card">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
-    <button type="button" class="btn btn-primary" id="expel--${student.id}">EXPEL</button>
+    <button type="button" class="btn btn-primary" id="expel--${student.id}">Expel</button>
   </div>
 </div>`}
 
