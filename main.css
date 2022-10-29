@@ -44,7 +44,7 @@ body {
 .house {
   flex-basis: 1;
   margin: 15px;
-  border: 5px solid black;
+  
 }
 
 .army {
@@ -59,4 +59,28 @@ body {
 }
 
 
- 
+ /* house background color on card */
+
+ #Gryffindorcard {
+  background-color: crimson;
+  color: white;
+  max-height: 700px;
+ }
+
+ #Slytherincard {
+  background-color: green;
+  color: white;
+  max-height: 700px;
+ }
+
+ #Hufflepuffcard {
+  background-color: gold;
+  color: white;
+  max-height: 700px;
+ }
+
+ #Ravenclawcard {
+  background-color: purple;
+  color: white;
+  max-height: 700px;
+ }

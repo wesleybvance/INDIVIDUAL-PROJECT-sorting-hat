@@ -50,13 +50,13 @@ const army = [
     firstName: "Voldemort",
     lastName: "",
     house: "Slytherin",
-    img: "link",
+    img: "https://static.wikia.nocookie.net/harrypotter/images/a/aa/Voldemort_Headshot_DHP1.png"
   },
   { id: 2,
     firstName: "Draco",
     lastName: "Malfoy",
     house: "Slytherin",
-    img: "link",
+    img: "https://static.wikia.nocookie.net/hogwarts-life/images/8/82/Draco_Malfoy.jpg",
   },
 ]
 
@@ -153,7 +153,7 @@ const formName =  `<form id="studentForm">
 const studentCard = (student) => {
   return `<div class="card" style="width: 18rem;">
   <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
-  <div class="card-body ${student.house}-card">
+  <div class="card-body" id="${student.house}card">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
     <button type="button" class="btn btn-primary" id="expel--${student.id}">EXPEL</button>
