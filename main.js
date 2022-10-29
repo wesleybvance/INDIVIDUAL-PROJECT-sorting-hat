@@ -20,27 +20,27 @@ const students = [
     firstName: "Andre",
     lastName: "Vance",
     house: "Slytherin",
-    img: "link",
+    img: "https://i.pinimg.com/564x/be/35/18/be35180c85de84ada35434f616d69068.jpg",
   },
   { id: 2,
     firstName: "Harry",
     lastName: "Potter",
     house: "Gryffindor",
-    img: "link",
+    img: "https://api.time.com/wp-content/uploads/2014/07/301386_full1.jpg",
   },
   {
     id: 3, 
     firstName: "Luna",
     lastName: "Lovegood",
     house: "Ravenclaw",
-    img: "link",
+    img: "https://images.ctfassets.net/usf1vwtuqyxm/t6GVMDanqSKGOKaCWi8oi/74b6816d9f913623419b98048ec87d25/LunaLovegood_WB_F5_LunaLovegoodPromoCloseUp_Promo_080615_Port.jpg?w=914&q=70&fm=jpg",
   }, 
   {
     id: 4,
     firstName: "Cedric", 
     lastName: "Diggory", 
     house: "Hufflepuff", 
-    img: "link", 
+    img: "https://pbs.twimg.com/media/FQKotwOWYAMEXQ-.jpg", 
   }
 ];
 
@@ -141,9 +141,9 @@ const formName =  `<form id="studentForm">
   <div class="col">
     <input type="text" id="lname" class="form-control" placeholder="Last name">
   </div>
-  <div class="col">
+  <p><div class="col">
     <input type="text" id="imgurl" class="form-control" placeholder="Image URL">
-  </div>
+  </div></p>
   <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
   <div class="error" id="formError"></div>
 </div>
@@ -349,6 +349,6 @@ app.addEventListener('click', (e) => {
     const newSoldier = darkSiding.pop()
     army.push(newSoldier);
     console.log(army);
-    renderAll();
+    renderAll(students);
   }
 });

@@ -1,14 +1,40 @@
 body {
-  background-color:aliceblue
+  background-image: url("https://i.pinimg.com/originals/38/fd/6d/38fd6d7c645400258715a83612c6c48f.jpg");  
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#firstintro {
+  background-color: transparent;
+  border: none;
+}
+
+.intro-text {
+  padding: 30px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),  inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset  0px 11px 28px 0px rgb(255, 255, 255);
+  opacity: .8;
+  font-family: 'Vollkorn SC', serif;
+}
+
+#startSort {
+  color: white;
+  background-color: black;
+  border: white;
+  font-family: 'IM Fell DW Pica', serif; 
 }
 
 
-.gryffindor-card {
-
+.intro-card {
+  margin: auto;
+  
 }
 
-.ravenclaw-card {
-
+.container-one {
+  margin: auto;
+  
 }
 
 .container-four-inner {
@@ -23,5 +49,14 @@ body {
 
 .army {
   display: flex;
-  
 }
+
+.card {
+  display: block;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+
+ 
