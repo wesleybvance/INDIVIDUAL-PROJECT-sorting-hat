@@ -136,7 +136,7 @@ const mainPage = `<div id="formBanner" class="container-two"></div>
 const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
-    <input type="text" id="fname" class="form-control" placeholder="First name">
+    <input type="text" id="fname" class="form-control" placeholder="First name" required>
   </div>
   <div class="col">
     <input type="text" id="lname" class="form-control" placeholder="Last name">
@@ -253,10 +253,8 @@ const createStudent = (event) => {
     lastName: document.querySelector("#lname").value,
     img: document.querySelector("#imgurl").value,
   };
-  if ((document.querySelector("#fname").value)==="") {
-    // make below a pop up field function with button close 
-    renderToDom("#formError", "Please enter a name.")
-  } else if ((document.querySelector("#imgurl").value)==="") {
+  
+  if ((document.querySelector("#imgurl").value)==="") {
    newStudent.img = hogwartsLogo;
   } else
   form.reset();
