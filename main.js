@@ -7,6 +7,8 @@ const app = document.querySelector("#app");
 const formBanner = document.querySelector("#formBanner");
 // TARGET INTRO FORM DIV
 const introCard = document.querySelector("#introCard");
+// HOGWARTS LOGO IMG
+const hogwartsLogo = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b4bdfc0-163c-4a6b-b800-0213094cfc2d/d665icx-cbbc58fe-5ff6-421e-bbeb-cedcfbe670e3.png/v1/fill/w_1600,h_1727,strp/hogwarts_crest_by_geijvontaen_d665icx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcyNyIsInBhdGgiOiJcL2ZcLzViNGJkZmMwLTE2M2MtNGE2Yi1iODAwLTAyMTMwOTRjZmMyZFwvZDY2NWljeC1jYmJjNThmZS01ZmY2LTQyMWUtYmJlYi1jZWRjZmJlNjcwZTMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.381VNcGRF2V5-_UQei_5yNyNPT8gjhJBAoNZcSZxYoQ";
 
 
 const clearDiv = "";
@@ -15,39 +17,46 @@ const clearDiv = "";
 // ARRAY HOLDING STUDENT OBJECTS
 const students = [
   { id: 1,
-    firstName: "Hermione",
-    lastName: "Granger",
-    house: "Ravenclaw",
-    img: "link",
+    firstName: "Andre",
+    lastName: "Vance",
+    house: "Slytherin",
+    img: "https://i.pinimg.com/564x/be/35/18/be35180c85de84ada35434f616d69068.jpg",
   },
   { id: 2,
     firstName: "Harry",
     lastName: "Potter",
     house: "Gryffindor",
-    img: "link",
+    img: "https://api.time.com/wp-content/uploads/2014/07/301386_full1.jpg",
   },
   {
     id: 3, 
-    firstName: "Wesley",
-    lastName: "Vance",
-    house: "Hufflepuff",
-    img: "link",
+    firstName: "Luna",
+    lastName: "Lovegood",
+    house: "Ravenclaw",
+    img: "https://images.ctfassets.net/usf1vwtuqyxm/t6GVMDanqSKGOKaCWi8oi/74b6816d9f913623419b98048ec87d25/LunaLovegood_WB_F5_LunaLovegoodPromoCloseUp_Promo_080615_Port.jpg?w=914&q=70&fm=jpg",
+  }, 
+  {
+    id: 4,
+    firstName: "Cedric", 
+    lastName: "Diggory", 
+    house: "Hufflepuff", 
+    img: "https://pbs.twimg.com/media/FQKotwOWYAMEXQ-.jpg", 
   }
 ];
 
 // ARRAY HOLDING VOLD ARMY OBJECTS
 const army = [
   { id: 1,
-    firstName: "Tom",
-    lastName: "Riddle",
-    house: "Gryffindor",
-    img: "link",
+    firstName: "Voldemort",
+    lastName: "",
+    house: "Slytherin",
+    img: "https://static.wikia.nocookie.net/harrypotter/images/a/aa/Voldemort_Headshot_DHP1.png"
   },
   { id: 2,
-    firstName: "Someone",
-    lastName: "Else",
-    house: "Gryffindor",
-    img: "link",
+    firstName: "Draco",
+    lastName: "Malfoy",
+    house: "Slytherin",
+    img: "https://static.wikia.nocookie.net/hogwarts-life/images/8/82/Draco_Malfoy.jpg",
   },
 ]
 
@@ -127,12 +136,15 @@ const mainPage = `<div id="formBanner" class="container-two"></div>
 const formName =  `<form id="studentForm">
 <div class="row">
   <div class="col">
-    <input type="text" id="fname" class="form-control" placeholder="First name">
+    <input type="text" id="fname" class="form-control" placeholder="First name" required>
   </div>
   <div class="col">
     <input type="text" id="lname" class="form-control" placeholder="Last name">
   </div>
-  <button type="submit" class="btn btn-primary" id="sortMe">Sort Me!</button>
+  <p><div class="col">
+    <input type="text" id="imgurl" class="form-control" placeholder="Image URL">
+  </div></p>
+  <button type="submit" class="btn btn-primary" id="sortMe">Sort Me</button>
 </div>
 </form>`;
 
@@ -140,10 +152,10 @@ const formName =  `<form id="studentForm">
 const studentCard = (student) => {
   return `<div class="card" style="width: 18rem;">
   <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
-  <div class="card-body ${student.house}-card">
+  <div class="card-body" id="${student.house}card">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
-    <button type="button" class="btn btn-primary" id="expel--${student.id}">EXPEL</button>
+    <button type="button" class="btn btn-primary" id="expel--${student.id}">Expel</button>
   </div>
 </div>`}
 
@@ -154,7 +166,6 @@ const armyCard = (soldier) => {
   <div class="card-body">
     <h5 class="card-title">${soldier.firstName} ${soldier.lastName}</h5>
     <p class="card-text">${soldier.firstName} ${soldier.lastName} has been expelled. Welcome to Voldemort's Army!</p>
-    <button type="button" class="btn btn-primary" id="expel--${soldier.id}">??</button>
   </div>
 </div>`}
 
@@ -234,13 +245,17 @@ const renderAll = () => {
 
 const createStudent = (event) => {
   event.preventDefault();
-  const form = document.querySelector("#studentForm")
-
+  const form = document.querySelector("#studentForm");
   const newStudent = {
     id: students.length + 1,
     firstName: document.querySelector("#fname").value,
     lastName: document.querySelector("#lname").value,
-  }
+    img: document.querySelector("#imgurl").value,
+  };
+  
+  if ((document.querySelector("#imgurl").value)==="") {
+   newStudent.img = hogwartsLogo;
+  } else
   form.reset();
   students.push(newStudent);
   sortStudent(students[students.length - 1]);
@@ -249,7 +264,6 @@ const createStudent = (event) => {
   renderHufflepuff(students);
   renderSlytherin(students);
   renderRavenclaw(students);
-  console.log(students);
 };
 
 // CLEARDIV FUNCTION 
@@ -332,6 +346,6 @@ app.addEventListener('click', (e) => {
     const newSoldier = darkSiding.pop()
     army.push(newSoldier);
     console.log(army);
-    renderAll();
+    renderAll(students);
   }
 });
