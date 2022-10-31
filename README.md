@@ -16,13 +16,13 @@ PLACE CODE SNIPPET HERE
 - The problem this app solves for them is it allows them to compromise via a quick, completely random sorting style that is sure to prevent numerous arguments at Thanksgiving
 
 ## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
-- When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
-- House Colors: The color of the student's card changes depending on which house they were sorted.
-- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
+- When a user submits information via form, a "student" object is created in an existing array which is rendered to the DOM by house value
+- A student object can be "expelled" via a button on the student card and removed from the student array, and pushed into a "Voldemort's Army" array that is rendered below the student houses
+- Students can be filtered by house on the display screen via a drop-down form field
+- If no image link is provided when a user submits a student, a generic Hogwarts logo will be used for their card
 
-## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
+## Video Walkthrough of Sorting Hat <!-- A loom link is sufficient -->
+https://www.loom.com/
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](#your-link)

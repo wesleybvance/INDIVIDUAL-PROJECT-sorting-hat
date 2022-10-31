@@ -134,8 +134,8 @@ const mainPage = `<div id="formBanner" class="container-two"></div>
 
 // STUDENT FORM HTML
 const formName =  `<form id="studentForm">
-<div class="row">
-  <div class="col">
+<div class="row"><img src="https://static.wikia.nocookie.net/harrypotter/images/5/5c/Sorting_Hat_WU.png" id="formpic" alt="..."><h4 class="intro-text-2 sort-text">Hmm, difficult. VERY difficult. Plenty of courage, I see. Not a bad mind, either. There's talent, oh yes. And a thirst to prove yourself. But where to put you?</h4>
+  <div class="col" id="formone">
     <input type="text" id="fname" class="form-control" placeholder="First name" required>
   </div>
   <div class="col">
@@ -150,8 +150,8 @@ const formName =  `<form id="studentForm">
 
 // STUDENT TO CARD HTML FUNCTION
 const studentCard = (student) => {
-  return `<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
+  return `<div class="card student-card" id="${student.house}cards" style="width: 18rem;">
+  <img class="card-img-top" id="studentimg" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
   <div class="card-body" id="${student.house}card">
     <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
     <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
@@ -161,8 +161,8 @@ const studentCard = (student) => {
 
 // ARMY TO CARD HTML FUNCTION
 const armyCard = (soldier) => {
-  return `<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${soldier.img}" alt="${soldier.firstName}, disgraced.">
+  return `<div class="card student-card" id="soldiercard" style="width: 18rem;">
+  <img class="card-img-top" id="soldierimg" src="${soldier.img}" alt="${soldier.firstName}, disgraced.">
   <div class="card-body">
     <h5 class="card-title">${soldier.firstName} ${soldier.lastName}</h5>
     <p class="card-text">${soldier.firstName} ${soldier.lastName} has been expelled. Welcome to Voldemort's Army!</p>
@@ -255,6 +255,7 @@ const createStudent = (event) => {
   
   if ((document.querySelector("#imgurl").value)==="") {
    newStudent.img = hogwartsLogo;
+   form.reset();
   } else
   form.reset();
   students.push(newStudent);
