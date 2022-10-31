@@ -8,8 +8,9 @@ const formBanner = document.querySelector("#formBanner");
 // TARGET INTRO FORM DIV
 const introCard = document.querySelector("#introCard");
 // HOGWARTS LOGO IMG
-const hogwartsLogo = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b4bdfc0-163c-4a6b-b800-0213094cfc2d/d665icx-cbbc58fe-5ff6-421e-bbeb-cedcfbe670e3.png/v1/fill/w_1600,h_1727,strp/hogwarts_crest_by_geijvontaen_d665icx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcyNyIsInBhdGgiOiJcL2ZcLzViNGJkZmMwLTE2M2MtNGE2Yi1iODAwLTAyMTMwOTRjZmMyZFwvZDY2NWljeC1jYmJjNThmZS01ZmY2LTQyMWUtYmJlYi1jZWRjZmJlNjcwZTMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.381VNcGRF2V5-_UQei_5yNyNPT8gjhJBAoNZcSZxYoQ";
+const hogwartsLogo = "hogwarts.png";
 
+// "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b4bdfc0-163c-4a6b-b800-0213094cfc2d/d665icx-cbbc58fe-5ff6-421e-bbeb-cedcfbe670e3.png/v1/fill/w_1600,h_1727,strp/hogwarts_crest_by_geijvontaen_d665icx-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcyNyIsInBhdGgiOiJcL2ZcLzViNGJkZmMwLTE2M2MtNGE2Yi1iODAwLTAyMTMwOTRjZmMyZFwvZDY2NWljeC1jYmJjNThmZS01ZmY2LTQyMWUtYmJlYi1jZWRjZmJlNjcwZTMucG5nIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.381VNcGRF2V5-_UQei_5yNyNPT8gjhJBAoNZcSZxYoQ"
 
 const clearDiv = "";
 
@@ -134,8 +135,8 @@ const mainPage = `<div id="formBanner" class="container-two"></div>
 
 // STUDENT FORM HTML
 const formName =  `<form id="studentForm">
-<div class="row">
-  <div class="col">
+<div class="row"><img src="https://static.wikia.nocookie.net/harrypotter/images/5/5c/Sorting_Hat_WU.png" id="formpic" alt="..."><h4 class="intro-text-2 sort-text">Hmm, difficult. VERY difficult. Plenty of courage, I see. Not a bad mind, either. There's talent, oh yes. And a thirst to prove yourself. But where to put you?</h4>
+  <div class="col" id="formone">
     <input type="text" id="fname" class="form-control" placeholder="First name" required>
   </div>
   <div class="col">
@@ -150,22 +151,22 @@ const formName =  `<form id="studentForm">
 
 // STUDENT TO CARD HTML FUNCTION
 const studentCard = (student) => {
-  return `<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
+  return `<div class="card student-card" id="${student.house}cards" style="width: 18rem;">
+  <img class="card-img-top" id="studentimg" src="${student.img}" alt="${student.firstName}, proud member of ${student.house}.">
   <div class="card-body" id="${student.house}card">
-    <h5 class="card-title">${student.firstName} ${student.lastName}</h5>
-    <p class="card-text">${student.firstName} ${student.lastName} has been sorted. Welcome to ${student.house}, ${student.firstName}!</p>
+    <h5 class="card-title" id="newStudentName">${student.firstName} ${student.lastName}</h5>
+    <p class="card-text" id="personDescription">Welcome to ${student.house}, ${student.firstName}!</p>
     <button type="button" class="btn btn-primary" id="expel--${student.id}">Expel</button>
   </div>
 </div>`}
 
 // ARMY TO CARD HTML FUNCTION
 const armyCard = (soldier) => {
-  return `<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${soldier.img}" alt="${soldier.firstName}, disgraced.">
+  return `<div class="card student-card" id="soldiercard" style="width: 18rem;">
+  <img class="card-img-top" id="soldierimg" src="${soldier.img}" alt="${soldier.firstName}, disgraced.">
   <div class="card-body">
-    <h5 class="card-title">${soldier.firstName} ${soldier.lastName}</h5>
-    <p class="card-text">${soldier.firstName} ${soldier.lastName} has been expelled. Welcome to Voldemort's Army!</p>
+    <h5 class="card-title" id="soldierName">${soldier.firstName} ${soldier.lastName}</h5>
+    <p class="card-text" id="soldierDescription">${soldier.firstName} ${soldier.lastName} has been expelled and has joined Voldemort's Army.</p>
   </div>
 </div>`}
 
@@ -255,6 +256,7 @@ const createStudent = (event) => {
   
   if ((document.querySelector("#imgurl").value)==="") {
    newStudent.img = hogwartsLogo;
+   form.reset();
   } else
   form.reset();
   students.push(newStudent);

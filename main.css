@@ -19,6 +19,12 @@ body {
   font-family: 'Vollkorn SC', serif;
 }
 
+.intro-text-2 {
+  opacity: .8;
+  font-family: 'Vollkorn SC', serif;
+  padding: 0px 50px 20px 50px;
+}
+
 #startSort {
   color: white;
   background-color: black;
@@ -31,6 +37,8 @@ body {
   background-color: black;
   border: white;
   font-family: 'IM Fell DW Pica', serif; 
+  width: 200px;
+  margin: auto;
 }
 
 .btn, .btn-primary {
@@ -43,27 +51,97 @@ body {
 
 .intro-card {
   margin: auto;
-  
 }
+
+.student-card {
+  max-width: 225px;
+  display: flex;
+}
+
+#studentimg {
+  max-height: 300px;
+  width: auto;
+}
+
+#soldierimg {
+  height: 300px;
+  width: auto;
+
+}
+
+.sort-text {
+  margin: auto;
+  /* padding: 20px; */
+  width: 1000px;
+}
+
+#formpic {
+  height: 200px;
+  width: auto;
+  margin: auto;
+  padding: 25px;
+}
+
+#imgurl {
+  width: 700px;
+  margin: auto;
+}
+
+#enrolled {
+  padding: 50px;
+}
+
 
 .container-one {
   margin: auto;
   
 }
 
+.container-four {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .container-four-inner {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
 }
 
 .house {
+  display: flex;
+  flex-wrap: wrap;
   flex-basis: 1;
   margin: 15px;
+  justify-content: space-between;
   
 }
 
 .army {
   display: flex;
+  flex-wrap: wrap;
+  flex-basis: 1;
+  margin: auto;
+  justify-content: space-between;
 }
+
+#soldierName {
+  font-family: 'Vollkorn SC', serif;
+}
+
+#personDescription {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+#newStudentName {
+  font-family: 'Vollkorn SC', serif;
+}
+
+#soldierDescription {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
 
 .card {
   display: block;
@@ -75,22 +153,39 @@ body {
 
  /* house background color on card */
 
- #Gryffindorcard {
+ #Gryffindorcard, #Gryffindorcards {
   background-color: crimson;
   color: white;
  }
 
- #Slytherincard {
+ #Slytherincard, #Slytherincards {
   background-color: green;
   color: white;
  }
 
- #Hufflepuffcard {
+ #Hufflepuffcard, #Hufflepuffcards {
   background-color: gold;
   color: white;
  }
 
- #Ravenclawcard {
+ #Ravenclawcard, #Ravenclawcards {
   background-color: purple;
   color: white;
+ }
+
+ #soldiercard {
+  background-color: black;
+  color: white;
+  
+ }
+
+ #studentForm {
+  padding: 20px;
+  width: 75%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 50px;
+  box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),  inset -8px -8px 16px 0px rgba(145, 192, 255, 0.6), inset  0px 11px 28px 0px rgb(255, 255, 255);
+  opacity: .8;
+  margin: auto;
  }
