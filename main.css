@@ -126,6 +126,23 @@ body {
   justify-content: space-between;
 }
 
+#soldierName {
+  font-family: 'Vollkorn SC', serif;
+}
+
+#personDescription {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+#newStudentName {
+  font-family: 'Vollkorn SC', serif;
+}
+
+#soldierDescription {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+
 .card {
   display: block;
     overflow: hidden;
