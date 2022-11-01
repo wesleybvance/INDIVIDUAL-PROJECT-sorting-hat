@@ -22,7 +22,7 @@ PLACE CODE SNIPPET HERE
 - If no image link is provided when a user submits a student, a generic Hogwarts logo will be used for their card
 
 ## Video Walkthrough of Sorting Hat <!-- A loom link is sufficient -->
-https://www.loom.com/
+https://www.loom.com/share/af9a9e91192a40cead9efbde76cf3b7e
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](#your-link)
@@ -30,10 +30,45 @@ https://www.loom.com/
 - [Project Board](#your-link)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
+
+```
+const filterHouse = (e) => {
+  const griffId = `<div id="gryffindor" class="house"></div>`;
+  const slythId = `<div id="slytherin" class="house"></div>`;
+  const ravenId = `<div id="ravenclaw" class="house"></div>`;
+  const huffId = `<div id="hufflepuff" class="house"></div>`;
+  const allId = `<div id="gryffindor" class="house"></div>
+                <div id="slytherin" class="house"></div>
+                <div id="ravenclaw" class="house"></div>
+                <div id="hufflepuff" class="house"></div>`
+  if (houseMenu.value==="1") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", griffId);
+    renderGryffindor(students);
+  } else if (houseMenu.value==="2") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", slythId);
+    renderSlytherin(students);
+  } else if (houseMenu.value==="3") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", ravenId);
+    renderRavenclaw(students);
+  } else if (houseMenu.value==="4") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", huffId);
+    renderHufflepuff(students);
+  } else if (houseMenu.value==="5") {
+    renderToDom("#allHouses", clearDiv);
+    renderToDom("#allHouses", allId);
+    renderAll(students);
+  }
+};
+```
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<img width="1148" alt="Your Alt" src="your-link.png">
+<img width="1148" alt="Page Load" src="homepage.png">
+<img width="1148" alt="Sorting Form" src="studentform.png">
+<img width="1148" alt="Houses" src="houses.png">
 
 ## Contributors
-- [YOUR NAME](https://github.com/your-github-url)
+- [Wesley Vance](https://github.com/wesleybvance)
