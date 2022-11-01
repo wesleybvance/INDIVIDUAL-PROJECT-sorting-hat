@@ -5,10 +5,9 @@
 
 This website features a digital Harry-Potter style "Sorting Hat" with functionality to "sort" unlimited users/person of choice into one of the four Hogwarts houses at random.
 
-[View App](#https://wvance-sorting-hat.netlify.app/#)
+[View App](https://wvance-sorting-hat.netlify.app/#)
 
 ## Get Started <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
 
 ```
 const startSort = (event) => {
@@ -43,7 +42,7 @@ const startSort = (event) => {
 https://www.loom.com/share/af9a9e91192a40cead9efbde76cf3b7e
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#https://wvance-sorting-hat.netlify.app/#)
+- [Check out the deployed site](https://wvance-sorting-hat.netlify.app/#)
 - [Wireframes](#your-link)
 - [Project Board](#your-link)
 
