@@ -1,14 +1,32 @@
-# Sorting Hat Website  [![Netlify Status](https://api.netlify.com/api/v1/badges/f45d5348-2cb3-4a3e-a3d1-15064363dbc7/deploy-status)](wvance-sorting-hat.netlify.app)
+# Sorting Hat Website  [![Netlify Status](https://api.netlify.com/api/v1/badges/f45d5348-2cb3-4a3e-a3d1-15064363dbc7/deploy-status)](https://wvance-sorting-hat.netlify.app/#)
 
-(wvance-sorting-hat.netlify.app)
+(https://wvance-sorting-hat.netlify.app/#)
 <!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
 This website features a digital Harry-Potter style "Sorting Hat" with functionality to "sort" unlimited users/person of choice into one of the four Hogwarts houses at random.
 
-[View App](#wvance-sorting-hat.netlify.app)
+[View App](#https://wvance-sorting-hat.netlify.app/#)
 
 ## Get Started <!-- OPTIONAL, but doesn't hurt -->
 PLACE CODE SNIPPET HERE
+
+```
+const startSort = (event) => {
+  if (event.target.id.includes("startSort")) {
+    renderToDom("#app", mainPage)
+    renderToDom("#formBanner", formName);
+    // renderToDom("#introCard", clearDiv);
+    renderToDom("#enrolled", houseSelect);
+    renderAll();
+    const houseMenu = document.querySelector("#houseMenu");
+    const houseDiv = document.querySelector("#enrolled");
+    houseMenu.addEventListener('change', filterHouse);
+  }
+
+  const form = document.querySelector("#studentForm")
+  form.addEventListener('submit', createStudent);
+}
+```
 
 ## About the User <!-- This is a scaled down user persona -->
 - The ideal user for this application is Harry Potter fan who does not have time to fill out a sorting quiz, or does not trust the potential inherent bias in answering questions about oneself in personality quizzes
@@ -25,7 +43,7 @@ PLACE CODE SNIPPET HERE
 https://www.loom.com/share/af9a9e91192a40cead9efbde76cf3b7e
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#your-link)
+- [Check out the deployed site](#https://wvance-sorting-hat.netlify.app/#)
 - [Wireframes](#your-link)
 - [Project Board](#your-link)
 
